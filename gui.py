@@ -2,6 +2,8 @@ from tkinter import *
 
 #key down function
 
+
+
 def run():
 
     def click():
@@ -16,13 +18,17 @@ def run():
     # create window
     window = Tk()
 
+    # create checkboxes 
+
     # define width and height
     width = 1000
     height = 500
 
     wxh = str(width) + "x" + str(height)
-
-    window.geometry(wxh)
+    window.columnconfigure((0, 1, 2), weight=1)
+    window.rowconfigure((0, 1, 2), weight=1)
+    
+    # window.attributes('-fullscreen', True)
 
     window.title("Pizza")
     window.configure(background="black")
@@ -30,7 +36,7 @@ def run():
 
     # create label
     photo1 = PhotoImage(file="w.png")
-    Label(window, width=300, height=300, image=photo1, bg="black").grid(row=0, column=1, sticky=W)
+    Label(window, width=200, height=200, image=photo1, bg="black").grid(row=1, column=0, columnspan=3, sticky="nsew")
 
     # create a text entry box
     textentry = Entry(window, width=20, bg="black")
